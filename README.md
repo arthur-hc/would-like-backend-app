@@ -32,7 +32,7 @@ A scalable Would Like API built with Java Spring Boot, implementing Clean Archit
 # Prerequisites: Java 17+, Docker, Maven
 
 # Clone and setup
-git clone <repository-url>
+git clone https://github.com/arthur-hc/would-like-backend-app
 cd would-like-backend-app
 
 # Build and run with Docker
