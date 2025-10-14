@@ -70,7 +70,7 @@ Authorization: Bearer {jwt_token}
 **Response (200 OK):**
 ```json
 {
-  "id": "user-uuid-123",
+  "id": 123,
   "email": "user@example.com",
   "firstName": "John",
   "lastName": "Doe",
@@ -105,7 +105,7 @@ Get all wish lists for the authenticated user.
 {
   "content": [
     {
-      "id": "wishlist-uuid-123",
+      "id": 123,
       "name": "Birthday Wishes 2025",
       "description": "Things I want for my birthday",
       "isPublic": false,
@@ -136,7 +136,7 @@ Create a new wish list.
 **Response (201 Created):**
 ```json
 {
-  "id": "wishlist-uuid-456",
+  "id": 456,
   "name": "Christmas Wishes",
   "description": "My Christmas wish list for 2025",
   "isPublic": false,
@@ -152,13 +152,13 @@ Get a specific wish list with all items.
 **Response (200 OK):**
 ```json
 {
-  "id": "wishlist-uuid-123",
+  "id": 123,
   "name": "Birthday Wishes 2025",
   "description": "Things I want for my birthday",
   "isPublic": false,
   "items": [
     {
-      "id": "item-uuid-789",
+      "id": 789,
       "name": "Wireless Headphones",
       "description": "Noise-cancelling wireless headphones",
       "price": {
@@ -220,7 +220,7 @@ Add an item to a wish list.
 **Response (201 Created):**
 ```json
 {
-  "id": "item-uuid-101",
+  "id": 101,
   "name": "Smartphone",
   "description": "Latest model smartphone",
   "price": {
@@ -307,7 +307,7 @@ All errors follow a consistent structure:
 {
   "error": {
     "code": "USER_NOT_FOUND",
-    "message": "User not found with id: user-123"
+    "message": "User not found with id: 123"
   }
 }
 ```
@@ -317,7 +317,7 @@ All errors follow a consistent structure:
 {
   "error": {
     "code": "WISHLIST_NOT_FOUND", 
-    "message": "Wish list not found with id: wishlist-123"
+    "message": "Wish list not found with id: 123"
   }
 }
 ```
@@ -337,7 +337,7 @@ All errors follow a consistent structure:
 ### User
 ```json
 {
-  "id": "string (UUID)",
+  "id": "integer (BIGINT)",
   "email": "string (email format)",
   "firstName": "string (1-50 chars)",
   "lastName": "string (1-50 chars)", 
@@ -349,7 +349,7 @@ All errors follow a consistent structure:
 ### WishList
 ```json
 {
-  "id": "string (UUID)",
+  "id": "integer (BIGINT)",
   "name": "string (1-100 chars)",
   "description": "string (max 500 chars, optional)",
   "isPublic": "boolean",
@@ -363,7 +363,7 @@ All errors follow a consistent structure:
 ### WishListItem
 ```json
 {
-  "id": "string (UUID)",
+  "id": "integer (BIGINT)",
   "name": "string (1-200 chars)",
   "description": "string (max 1000 chars, optional)",
   "price": "Money object (optional)",

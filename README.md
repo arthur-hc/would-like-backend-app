@@ -6,7 +6,7 @@ A scalable Would Like API built with Java Spring Boot, implementing Clean Archit
 ## Core Features
 - **Would Like Management**: Create, manage, and organize personal wish lists
 - **User Management**: User registration, authentication, and profiles
-- **Product Integration**: Abstract product management with future e-commerce integration
+- **Product Integration**: Abstract product management with future e-commerce integration (future feature)
 - **Recommendation Engine**: AI-powered product suggestions (future feature)
 - **Social Features**: Share and discover wish lists (future expansion)
 

@@ -331,6 +331,18 @@ version INT DEFAULT 1  -- for optimistic locking
 user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE
 ```
 
+### ID Strategy
+
+To maintain decoupling from specific database implementations while prioritizing performance, we use incremental IDs (BIGINT AUTO_INCREMENT in MySQL) in the infrastructure layer. In the domain layer, IDs are represented as Value Objects wrapping Long values, allowing abstraction over different ID types.
+
+This approach provides:
+
+- **Performance benefits**: Smaller index sizes (8 bytes vs 16 for UUID), sequential insertions reduce fragmentation, faster lookups
+- **Decoupling**: Domain remains agnostic to DB specifics through Value Objects and repository interfaces
+- **Flexibility**: Easy adaptation to other relational DBs (PostgreSQL SERIAL) or even non-relational ones by swapping infrastructure implementations
+
+For non-relational databases like MongoDB, adapt the repository adapters to use ObjectId or custom IDs, but map to the same domain Value Objects. This ensures the application layer and above remain unchanged during DB migrations.
+
 ## Testing Strategy (MANDATORY PATTERNS)
 
 ### Unit Test Structure
